@@ -1,0 +1,8 @@
+<div>
+  <% if Rails.env.development? %>      
+    <%= debug(params) %>               
+    <div class="breadcrumb">           
+      <%= render 'layouts/options' %>  
+    </div>                             
+  <% end %>                            
+</div>
