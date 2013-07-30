@@ -1,11 +1,13 @@
 <% provide(:title, "Home page") %>
 
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span3 hero-unit">
-      <p>Side 1</p>
-    </div>
-    <div class="span9 hero-unit">
-      <p>Side 2</p>
-    </div>
-</div>
+<div class="row-fluid">         
+  <div class="span3 hero-unit"> 
+      <%= link_to "Add genre", new_genre_url %>
+  </div>                        
+  <div class="span9 hero-unit center"> 
+    <h3>
+      Genres
+    </h3>
+    <%= render @genres %>
+  </div>                        
+</div>                          

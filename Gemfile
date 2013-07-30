@@ -14,6 +14,7 @@ gem "rolify", "3.2.0"
 gem "simple_form", "2.1.0"
 gem "rmagick", "2.13.2"
 gem "carrierwave", "0.9.0"
+gem "colorbox-rails", "0.1.0"
 
 group :development do
   gem "better_errors", "0.9.0"

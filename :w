@@ -1,0 +1,119 @@
+@import "bootstrap";
+
+$LightGray: #999;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow: auto;
+}
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.thumbnails li a.thumbnail .caption {
+    background-attachment: scroll;
+      background-clip: border-box;
+        background-color: #222222;
+          background-image: none;
+            background-origin: padding-box;
+              background-position: 0 0;
+                background-repeat: repeat;
+                  background-size: auto auto;
+                    bottom: 0;
+                      display: block;
+                        height: 100%;
+                          left: 0;
+                            opacity: 0;
+                              padding-bottom: 0;
+                                padding-left: 0;
+                                  padding-right: 0;
+                                    padding-top: 0;
+                                      position: absolute;
+                                        transition-delay: 0s;
+                                          transition-duration: 0.1s;
+                                            transition-property: all;
+                                              transition-timing-function:
+                                              ease-in-out;
+                                                width: 100%;
+                                            }
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $LightGray;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+  <li>
+/* header */
+
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* footer */
+
+
+/* debug */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.breadcrumb {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 5px;
+  @include box_sizing;
+}
+

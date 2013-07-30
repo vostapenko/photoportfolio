@@ -6,4 +6,8 @@ Photoportfolio::Application.routes.draw do
   match "/contact",     to: "static_pages#contact"
   match "/help",        to: "static_pages#help"
 
+  resources :genres
+  resources :albums
+  resources :paintings
+
 end

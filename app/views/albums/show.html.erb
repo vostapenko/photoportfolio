@@ -1,0 +1,11 @@
+<% provide(:title, @album.name) %>
+
+<div class="row-fluid">
+  <div class="span3 hero-unit">
+    <%= link_to "Add paint", new_painting_url(album_id: @album)%>
+    <%= link_to "Revert back", genre_url(@album.genre.id) %>
+  </div>
+  <div class="span9 hero-unit center">
+    <%= render 'albums/album' %>
+  </div>
+</div>
