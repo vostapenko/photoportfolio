@@ -1,0 +1,31 @@
+<% provide(:title, @genre.name) %>
+
+<div class="row-fluid">
+  <div class="span3 hero-unit">
+    <%= link_to "Add album", new_genre_album_url(@genre) %>
+    <%= link_to "Revert back", root_url %>
+  </div>
+  <div class="span9 hero-unit center" >
+    <h3>
+      <%= @genre.name %>
+    </h3>
+    <% @albums.each do |album| %>
+    <p>
+      <ul>
+        <li class="span3">
+          <div class="thumbnail center">
+            <%= link_to (image_tag title_album_image(album)), album_paintings_url(album)    %> 
+            <h4>
+              <%= link_to album.name, album_paintings_url(album) %> - <%= album.paintings.count %> images
+            </h4>
+            <h5>
+              <%= link_to "Edit", edit_genre_album_url(@genre, album) %>
+              <%= link_to "Delete", [@genre, album], method: :delete, data: { confirm: "You sure?" } %>
+            </h5>
+          </div>
+        </li>
+      </ul>
+    </p>
+  <% end %>
+ </div>
+</div>

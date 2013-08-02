@@ -1,12 +1,7 @@
 class GenresController < ApplicationController
 
   def index
-    @genres = Genre.all
-  end
-
-  def show
-    @genre = Genre.find(params[:id])
-    #@picture = @genre.albums.paintings.first.image
+     @genres = Genre.find(:all)
   end
 
   def new

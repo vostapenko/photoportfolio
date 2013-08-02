@@ -1,8 +1,4 @@
 class StaticPagesController < ApplicationController
-  def home
-    @genres = Genre.all
-    @albums = Album.all
-  end
 
   def about
   end

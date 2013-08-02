@@ -1,35 +1,39 @@
 class AlbumsController < ApplicationController
 
-  def index
+  before_filter :get_genre
+
+  def get_genre
+     @genre = Genre.find(params[:genre_id])
   end
 
-  def show
-    @album = Album.find(params[:id])
+  def index
+     @albums = @genre.albums
   end
+
 
   def new 
     @album = Album.new(genre_id: params[:genre_id])
   end
 
   def create
-    @album = Album.new(params[:album])
+    @album = @genre.albums.new(params[:album])
     if @album.save
       flash[:notice] = "Successfuly created album."
-      redirect_to @album.genre
+      redirect_to genre_albums_url
     else
       render action: 'new'
     end
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @album = @genre.albums.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
+    @album = @genre.albums.find(params[:id])
     if @album.update_attributes(params[:album])
       flash[:notice] = "Successfuly updated album."
-      redirect_to @album.genre
+      redirect_to genre_albums_url
     else
       render action: 'edit'
     end
@@ -39,7 +43,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @album.destroy
     flash[:notice] = "Successfuly destroyed album."
-    redirect_to @album.genre
+    redirect_to genre_albums_url
   end
 
 end

@@ -1,10 +1,10 @@
 module AlbumsHelper
 
-  def title_album_image(albums)
-    if  albums.paintings.first
-       albums.paintings.first.image_url(:thumb)
+  def title_album_image(album)
+    if  album.paintings.first
+       album.paintings.first.image_url(:thumb)
     else
-      "No images in album"
+      "No images"
     end
   end
 

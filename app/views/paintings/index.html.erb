@@ -1,0 +1,31 @@
+<% provide(:title, @album.name) %>
+
+<div class="row-fluid">
+  <div class="span3 hero-unit">
+    <%= link_to "Add image", new_album_painting_url(@album) %>
+    <%= link_to "Revert back", genre_albums_url(@album.genre) %>
+  </div>
+  <div class="span9 hero-unit center" >
+    <h3>
+      <%= @album.name %>
+    </h3>
+    <% @paintings.each do |painting| %>
+    <p>
+      <ul>
+        <li class="span3">
+          <div class="thumbnail center">
+            <%= link_to (image_tag painting.image_url(:thumb)), painting.image_url, data: { colorbox: true }, title: painting.name if painting.image? %> 
+            <h4>
+              <%= painting.name %> 
+            </h4>
+            <h5>
+              <%= link_to "Edit", edit_album_painting_url(@album, painting) %>
+              <%= link_to "Delete", [@album, painting],  method: :delete, data: { confirm: "You sure?" } %>
+            </h5>
+          </div>
+        </li>
+      </ul>
+    </p>
+  <% end %>
+ </div>
+</div>
