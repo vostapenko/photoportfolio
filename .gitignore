@@ -13,7 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/uploads
+/uploads/painting/*
+/uploads/tmp/*
 
 # Ignore application configuration
 /config/application.yml
