@@ -1,30 +1,54 @@
 <% provide(:title, "Home page") %>
 
-<div class="row-fluid">
-  <div class="span3 hero-unit">
-    <%= link_to "Add genre", new_genre_url %>
+<% if user_signed_in? %>
+  <div class="row-fluid">
+    <div class="span3 well center">
+      <%= link_to "Add genre", new_genre_url %>
+    </div>
+    <div class="span9 well center">
+     <h3>
+       Genres
+     </h3>
+     <% @genres.each do |genre| %>
+     <p>
+       <ul>
+         <li class="span3">
+           <div class="thumbnail center">
+               <%= link_to (image_tag title_genre_image(genre)), genre_albums_url(genre)  %> 
+               <h4>
+                 <%= link_to genre.name, genre_albums_url(genre) %> - <%= genre.albums.count %> albums
+               </h4>
+               <h5>
+                 <%= link_to "Edit", edit_genre_url(genre) %>
+                 <%= link_to "Delete", genre, method: :delete, data: { confirm: "You sure?" }%>
+             </h5>
+           </div>
+         </li>
+       </ul>
+     </p>
+     <% end %>
+    </div>
   </div>
-  <div class="span9 hero-unit center">
-    <h3>
-      Genres
-    </h3>
-    <% @genres.each do |genre| %>
-    <p>
-      <ul>
-        <li class="span3">
-          <div class="thumbnail center">
-              <%= link_to (image_tag title_genre_image(genre)), genre_albums_url(genre)  %> 
-              <h4>
-                <%= link_to genre.name, genre_albums_url(genre) %> - <%= genre.albums.count %> albums
-              </h4>
-              <h5>
-                <%= link_to "Edit", edit_genre_url(genre) %>
-                <%= link_to "Delete", genre, method: :delete, data: { confirm: "You sure?" }%>
-            </h5>
-          </div>
-        </li>
-      </ul>
-    </p>
-   <% end %>
+<% else %>
+  <div class="row-fluid">
+    <div class="span12 hero-unit center">
+     <h3>
+       Genres
+     </h3>
+     <% @genres.each do |genre| %>
+     <p>
+       <ul>
+         <li class="span3">
+           <div class="thumbnail center">
+               <%= link_to (image_tag title_genre_image(genre)), genre_albums_url(genre)  %> 
+               <h4>
+                 <%= link_to genre.name, genre_albums_url(genre) %> - <%= genre.albums.count %> albums
+               </h4>
+           </div>
+         </li>
+       </ul>
+     </p>
+     <% end %>
+    </div>
   </div>
-</div>
+<% end %>

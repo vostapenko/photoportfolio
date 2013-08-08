@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index]
   before_filter :get_album
 
   def get_album

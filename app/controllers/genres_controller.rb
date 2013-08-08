@@ -1,5 +1,7 @@
 class GenresController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index]
+
   def index
      @genres = Genre.find(:all)
   end

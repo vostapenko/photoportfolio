@@ -35,7 +35,15 @@ Photoportfolio::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host =>  'gamma.ukrpost.local:3000' } 
+  #Mailer option
+  config.action_mailer.delivery_method = :smtp                                    
+  config.action_mailer.smtp_settings = {                                          
+    address:    'smtp.funny.org',                                                 
+    port:        25                                                               
+  }                                                                               
+  config.action_mailer.default_url_options = { :host => 'gamma.ukrpost.local:3000' }
+  config.action_mailer.perform_deliveries = false                                 
+  config.action_mailer.raise_delivery_errors = true                              
+  config.action_mailer.default :charset => "utf-8"                                
 
 end

@@ -1,5 +1,7 @@
 Photoportfolio::Application.routes.draw do
 
+  devise_for :users, controllers: { registrations: "users/registration" } 
+
   root to: "genres#index"
 
   match "/about",       to: "static_pages#about"

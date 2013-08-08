@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index]
   before_filter :get_genre
 
   def get_genre

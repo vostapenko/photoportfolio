@@ -15,6 +15,7 @@ gem "simple_form", "2.1.0"
 gem "rmagick", "2.13.2"
 gem "carrierwave", "0.9.0"
 gem "colorbox-rails", "0.1.0"
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :development do
   gem "better_errors", "0.9.0"
